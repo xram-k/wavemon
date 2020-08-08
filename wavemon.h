@@ -320,11 +320,11 @@ static inline size_t argv_count(char **argv)
 
 static inline int argv_find(char **argv, const char *what)
 {
-	int cnt = argv_count(argv), len, i;
+	int cnt = argv_count(argv), i;
 
 	assert(what != NULL);
-	for (i = 0, len = strlen(what); i < cnt; i++)
-		if (strncasecmp(argv[i], what, len) == 0)
+	for (i = 0; i < cnt; i++)
+		if (strcasecmp(argv[i], what) == 0)
 			return i;
 	return -1;
 }
